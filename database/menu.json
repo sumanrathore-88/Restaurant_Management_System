@@ -1,0 +1,210 @@
+[
+    {
+        "id": 1,
+        "dish": "dal makhani",
+        "half": [
+            150,
+            250
+        ],
+        "full": [
+            250,
+            400
+        ],
+        "veg": true
+    },
+    {
+        "id": 2,
+        "dish": "Paneer Tikka Masala",
+        "half": [
+            200,
+            300
+        ],
+        "full": [
+            350,
+            500
+        ],
+        "veg": true
+    },
+    {
+        "id": 3,
+        "dish": "Palak Paneer",
+        "half": [
+            170,
+            270
+        ],
+        "full": [
+            280,
+            430
+        ],
+        "veg": true
+    },
+    {
+        "id": 4,
+        "dish": "Malai Kofta",
+        "half": [
+            180,
+            280
+        ],
+        "full": [
+            300,
+            450
+        ],
+        "veg": true
+    },
+    {
+        "id": 5,
+        "dish": "Aloo Gobi",
+        "half": [
+            120,
+            220
+        ],
+        "full": [
+            200,
+            350
+        ],
+        "veg": true
+    },
+    {
+        "id": 6,
+        "dish": "Chana Masala",
+        "half": [
+            130,
+            230
+        ],
+        "full": [
+            220,
+            380
+        ],
+        "veg": true
+    },
+    {
+        "id": 7,
+        "dish": "Veg Biryani",
+        "half": [
+            140,
+            240
+        ],
+        "full": [
+            250,
+            400
+        ],
+        "veg": true
+    },
+    {
+        "id": 8,
+        "dish": "Mushroom Manchurian",
+        "half": [
+            150,
+            250
+        ],
+        "full": [
+            250,
+            400
+        ],
+        "veg": true
+    },
+    {
+        "id": 9,
+        "dish": "Gobi Manchurian",
+        "half": [
+            130,
+            230
+        ],
+        "full": [
+            220,
+            380
+        ],
+        "veg": true
+    },
+    {
+        "id": 10,
+        "dish": "Butter Chicken",
+        "half": [
+            250,
+            400
+        ],
+        "full": [
+            400,
+            650
+        ],
+        "veg": false
+    },
+    {
+        "id": 11,
+        "dish": "Chicken Tikka Masala",
+        "half": [
+            250,
+            400
+        ],
+        "full": [
+            400,
+            650
+        ],
+        "veg": false
+    },
+    {
+        "id": 12,
+        "dish": "Tandoori Chicken",
+        "half": [
+            220,
+            350
+        ],
+        "full": [
+            350,
+            550
+        ],
+        "veg": false
+    },
+    {
+        "id": 13,
+        "dish": "Mutton Curry",
+        "half": [
+            300,
+            450
+        ],
+        "full": [
+            500,
+            750
+        ],
+        "veg": false
+    },
+    {
+        "id": 14,
+        "dish": "Chicken Biryani",
+        "half": [
+            200,
+            350
+        ],
+        "full": [
+            350,
+            600
+        ],
+        "veg": false
+    },
+    {
+        "id": 15,
+        "dish": "Fish Curry",
+        "half": [
+            250,
+            400
+        ],
+        "full": [
+            400,
+            650
+        ],
+        "veg": false
+    },
+    {
+        "id": 16,
+        "dish": "Prawn Curry",
+        "half": [
+            300,
+            450
+        ],
+        "full": [
+            500,
+            750
+        ],
+        "veg": false
+    }
+]
