@@ -1,306 +1,209 @@
+
 import json
 import os
-from typing import List, Dict, Optional
+from getpass import getpass
+from typing import List, Dict, Any
 
-# Import authentication helpers from domain
-from user_authentication import load_data, admin_authenticate
+# Admin credentials
+ADMIN = {
+    "name": "suman rathore",
+    "id": 100,
+    "email": "suman@gmail.com",
+    "password": "suman123",
+}
 
-# Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_DIR = os.path.join(BASE_DIR, "..", "database")
-MENU_FILE = os.path.join(DB_DIR, "menu.json")
+# File paths
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_DIR = os.path.normpath(os.path.join(THIS_DIR, "..", "database"))
+MENU_DB = os.path.join(DB_DIR, "menu.json")
+os.makedirs(DB_DIR, exist_ok=True)
 
+# ANSI color codes for better visualization
+class Col:
+    HEADER = "\033[95m"
+    BLUE = "\033[94m"
+    CYAN = "\033[96m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    BOLD = "\033[1m"
+    UNDER = "\033[4m"
+    END = "\033[0m"
 
-class MenuItem:
+# Predefined 50+ Menu Items
+SAMPLE_MENU = [
+    {"id": str(i+1), "name": name, "half_plate_rate": half, "full_plate_rate": full}
+    for i, (name, half, full) in enumerate([
+        ("Butter Chicken", 160, 300), ("Paneer Butter Masala", 130, 250), ("Dal Makhani", 110, 200),
+        ("Shahi Paneer", 140, 260), ("Kadai Paneer", 135, 250), ("Chole Bhature", 100, 180),
+        ("Rajma Chawal", 90, 170), ("Jeera Rice", 70, 120), ("Veg Biryani", 120, 220), ("Chicken Biryani", 160, 300),
+        ("Mutton Biryani", 200, 380), ("Egg Biryani", 110, 200), ("Fish Curry", 180, 340), ("Prawn Curry", 200, 380),
+        ("Masala Dosa", 65, 120), ("Plain Dosa", 50, 90), ("Rava Dosa", 70, 130), ("Idli Sambar", 45, 80),
+        ("Vada Sambar", 50, 90), ("Pav Bhaji", 85, 150), ("Pani Puri", 60, 100), ("Bhel Puri", 70, 120),
+        ("Samosa (2 pcs)", 40, 70), ("Paneer Tikka", 150, 280), ("Chicken Tikka", 170, 320), ("Tandoori Chicken", 200, 380),
+        ("Butter Naan", 35, 60), ("Garlic Naan", 40, 70), ("Roti", 10, 20), ("Paratha", 30, 55),
+        ("Aloo Gobi", 90, 160), ("Baingan Bharta", 100, 180), ("Palak Paneer", 130, 250), ("Malai Kofta", 140, 260),
+        ("Veg Manchurian", 95, 170), ("Hakka Noodles", 85, 150), ("Schezuan Noodles", 100, 180), ("Chicken Noodles", 110, 200),
+        ("Veg Fried Rice", 80, 150), ("Egg Fried Rice", 95, 170), ("Chicken Fried Rice", 120, 220), ("Momos Veg", 70, 120),
+        ("Momos Chicken", 90, 160), ("Spring Roll", 80, 140), ("Tomato Soup", 60, 110), ("Hot & Sour Soup", 70, 130),
+        ("Sweet Corn Soup", 65, 120), ("French Fries", 75, 140), ("Grilled Sandwich", 80, 140), ("Cheese Sandwich", 95, 170),
+        ("Paneer Wrap", 100, 180), ("Chicken Wrap", 120, 220), ("Veg Burger", 90, 160), ("Chicken Burger", 120, 220),
+        ("Cold Coffee", 60, 110), ("Masala Chai", 25, 40), ("Lassi", 55, 100)
+    ])
+]
 
-
-    def __init__(self, id: int, dish: str, half_rate_min: int, half_rate_max: int, full_rate_min: int, full_rate_max: int, veg: bool = True):
-        self.id = id
-        self.dish = dish
-        self.half_rate_min = half_rate_min
-        self.half_rate_max = half_rate_max
-        self.full_rate_min = full_rate_min
-        self.full_rate_max = full_rate_max
-        self.veg = veg
-
-    def to_dict(self) -> Dict:
-        return {
-            "id": self.id,
-            "dish": self.dish,
-            "half": [self.half_rate_min, self.half_rate_max],
-            "full": [self.full_rate_min, self.full_rate_max],
-            "veg": self.veg,
-        }
-
-    @staticmethod
-    def from_dict(d: Dict) -> "MenuItem":
-        return MenuItem(
-            id=d["id"],
-            dish=d["dish"],
-            half_rate_min=d.get("half", [0, 0])[0],
-            half_rate_max=d.get("half", [0, 0])[1],
-            full_rate_min=d.get("full", [0, 0])[0],
-            full_rate_max=d.get("full", [0, 0])[1],
-            veg=d.get("veg", True),
-        )
-
-    def display(self) -> str:
-        half = f"₹{self.half_rate_min}–₹{self.half_rate_max}"
-        full = f"₹{self.full_rate_min}–₹{self.full_rate_max}"
-        type_str = "Veg" if self.veg else "Non-Veg"
-        return f"{self.id:3} | {self.dish:30} | {half:18} | {full:18} | {type_str}"
-
-
-class MenuManager:
-
-    def __init__(self):
-        os.makedirs(DB_DIR, exist_ok=True)
-        
-        if not os.path.exists(MENU_FILE):
-            self.menu: List[MenuItem] = self._default_menu()
-            self.save()
-        else:
-            try:
-                self.menu = self.load()
-            except (json.JSONDecodeError, ValueError):
-                
-                print("Warning: menu.json is empty or invalid. Recreating with default menu.")
-                self.menu = self._default_menu()
-                self.save()
-
-    def _default_menu(self) -> List[MenuItem]:
-        
-        items = [
-            MenuItem(1, "Dal Makhani", 150, 250, 250, 400, veg=True),
-            MenuItem(2, "Paneer Tikka Masala", 200, 300, 350, 500, veg=True),
-            MenuItem(3, "Palak Paneer", 170, 270, 280, 430, veg=True),
-            MenuItem(4, "Malai Kofta", 180, 280, 300, 450, veg=True),
-            MenuItem(5, "Aloo Gobi", 120, 220, 200, 350, veg=True),
-            MenuItem(6, "Chana Masala", 130, 230, 220, 380, veg=True),
-            MenuItem(7, "Veg Biryani", 140, 240, 250, 400, veg=True),
-            MenuItem(8, "Mushroom Manchurian", 150, 250, 250, 400, veg=True),
-            MenuItem(9, "Gobi Manchurian", 130, 230, 220, 380, veg=True),
-            MenuItem(10, "Butter Chicken", 250, 400, 400, 650, veg=False),
-            MenuItem(11, "Chicken Tikka Masala", 250, 400, 400, 650, veg=False),
-            MenuItem(12, "Tandoori Chicken", 220, 350, 350, 550, veg=False),
-            MenuItem(13, "Mutton Curry", 300, 450, 500, 750, veg=False),
-            MenuItem(14, "Chicken Biryani", 200, 350, 350, 600, veg=False),
-            MenuItem(15, "Fish Curry", 250, 400, 400, 650, veg=False),
-            MenuItem(16, "Prawn Curry", 300, 450, 500, 750, veg=False),
-        ]
-        return items
-
-    def load(self) -> List[MenuItem]:
-        # Read and parse menu.json, with defensive checks
-        with open(MENU_FILE, "r") as f:
-            content = f.read().strip()
-            if not content:
-                raise ValueError("menu.json is empty")
-            raw = json.loads(content)
-        if not isinstance(raw, list):
-            raise ValueError("menu.json does not contain a list")
-        return [MenuItem.from_dict(d) for d in raw]
-
-    def save(self):
-        with open(MENU_FILE, "w") as f:
-            json.dump([m.to_dict() for m in self.menu], f, indent=4)
-
-    def list_menu(self):
-        print("ID  | Dish                           | Half (approx.)     | Full (approx.)     | Type")
-        print("----+--------------------------------+--------------------+--------------------+--------")
-        for m in self.menu:
-            print(m.display())
-        print()
-
-    def find_by_id(self, id: int) -> Optional[MenuItem]:
-        for m in self.menu:
-            if m.id == id:
-                return m
-        return None
-
-    # Admin-only operations
-    def add_dish(self, auth_data):
-        if not admin_authenticate(auth_data):
-            return
-        try:
-            new_id = int(input("Enter new dish id (number): ").strip())
-        except ValueError:
-            print("Invalid id.")
-            return
-        if self.find_by_id(new_id):
-            print("Dish with this id already exists.")
-            return
-        name = input("Dish name: ").strip()
-        try:
-            half_min = int(input("Half plate min rate: ").strip())
-            half_max = int(input("Half plate max rate: ").strip())
-            full_min = int(input("Full plate min rate: ").strip())
-            full_max = int(input("Full plate max rate: ").strip())
-        except ValueError:
-            print("Rates must be numbers.")
-            return
-        veg_input = input("Is this veg? (y/N): ").strip().lower()
-        veg = veg_input == "y"
-        item = MenuItem(new_id, name, half_min, half_max, full_min, full_max, veg)
-        self.menu.append(item)
-        self.menu.sort(key=lambda x: x.id)
-        self.save()
-        print(f"Dish '{name}' added successfully.")
-
-    def update_dish(self, auth_data):
-        if not admin_authenticate(auth_data):
-            return
-        try:
-            id_ = int(input("Enter dish id to update: ").strip())
-        except ValueError:
-            print("Invalid id.")
-            return
-        item = self.find_by_id(id_)
-        if not item:
-            print("Dish not found.")
-            return
-        print("Leave blank to keep current value.")
-        new_name = input(f"New name [{item.dish}]: ").strip()
-        if new_name:
-            item.dish = new_name
-        try:
-            val = input(f"Half min [{item.half_rate_min}]: ").strip()
-            if val:
-                item.half_rate_min = int(val)
-            val = input(f"Half max [{item.half_rate_max}]: ").strip()
-            if val:
-                item.half_rate_max = int(val)
-            val = input(f"Full min [{item.full_rate_min}]: ").strip()
-            if val:
-                item.full_rate_min = int(val)
-            val = input(f"Full max [{item.full_rate_max}]: ").strip()
-            if val:
-                item.full_rate_max = int(val)
-        except ValueError:
-            print("Rates must be numbers. Update aborted.")
-            return
-        veg_input = input(f"Veg? (y/N) [{ 'y' if item.veg else 'N' }]: ").strip().lower()
-        if veg_input:
-            item.veg = veg_input == "y"
-        self.save()
-        print("Dish updated successfully.")
-
-    def delete_dish(self, auth_data):
-        if not admin_authenticate(auth_data):
-            return
-        try:
-            id_ = int(input("Enter dish id to delete: ").strip())
-        except ValueError:
-            print("Invalid id.")
-            return
-        for i, it in enumerate(self.menu):
-            if it.id == id_:
-                confirm = input(f"Are you sure you want to delete '{it.dish}'? (y/N): ").strip().lower()
-                if confirm == "y":
-                    self.menu.pop(i)
-                    self.save()
-                    print("Dish deleted.")
-                else:
-                    print("Deletion cancelled.")
-                return
-        print("Dish not found.")
-
-    
-    def staff_take_order(self, auth_data):
-        
-        print("--- New Customer Order ---")
-        
-        self.list_menu()
-
-        order = []  
-        while True:
-            try:
-                id_choice = input("Enter dish id to add to order : ").strip()
-                if not id_choice:
-                    break
-                id_choice = int(id_choice)
-            except ValueError:
-                print("Invalid id.")
-                continue
-            item = self.find_by_id(id_choice)
-            if not item:
-                print("Dish id not found.")
-                continue
-            portion = input("Portion - half or full? (h/f): ").strip().lower()
-            if portion not in ("h", "f"):
-                print("Invalid portion. Use 'h' or 'f'.")
-                continue
-            try:
-                qty = int(input("Quantity: ").strip())
-            except ValueError:
-                print("Invalid quantity.")
-                continue
-            
-            if portion == "h":
-                chosen_price = (item.half_rate_min + item.half_rate_max) // 2
+def load_menu() -> List[Dict[str, Any]]:
+    if not os.path.exists(MENU_DB):
+        save_menu(SAMPLE_MENU)
+        return SAMPLE_MENU
+    try:
+        with open(MENU_DB, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, list) and len(data) >= 50:
+                return data
             else:
-                chosen_price = (item.full_rate_min + item.full_rate_max) // 2
-            order.append((item, portion, qty, chosen_price))
-            print(f"Added {qty} x {item.dish} ({'Half' if portion=='h' else 'Full'}) at approx. ₹{chosen_price} each")
+                save_menu(SAMPLE_MENU)
+                return SAMPLE_MENU
+    except Exception:
+        save_menu(SAMPLE_MENU)
+        return SAMPLE_MENU
 
-        if not order:
-            print("No items ordered.")
-            return
-        # Print bill
-        print("-- BILL ---")
-        total = 0
-        for it, portion, qty, price in order:
-            line = price * qty
-            total += line
-            print(f"{it.dish:25} | {('Half' if portion=='h' else 'Full'):4} | {qty:2} x ₹{price} = ₹{line}")
-        print("" + "-" * 40)
-        print(f"TOTAL AMOUNT: ₹{total}")
-        print("Thank you! Order recorded.")
+def save_menu(items: List[Dict[str, Any]]) -> None:
+    with open(MENU_DB, "w", encoding="utf-8") as f:
+        json.dump(items, f, indent=4)
 
+def authenticate_admin() -> bool:
+    print(f"{Col.HEADER}--- Admin Authentication Required (Menu Management) ---{Col.END}")
+    email = input("Admin email: ").strip()
+    pw = getpass("Admin password: ")
+    if email == ADMIN["email"] and pw == ADMIN["password"]:
+        print(f"{Col.GREEN}Authentication successful. Welcome, {ADMIN['name']}!{Col.END}")
+        return True
+    print(f"{Col.RED}Authentication failed. Access denied.{Col.END}")
+    return False
 
-def main():
-    
-    auth_data = load_data()
-    manager = MenuManager()
+def print_menu(items: List[Dict[str, Any]], title: str = "MENU") -> None:
+    print()
+    print(f"{Col.CYAN}{Col.BOLD}{title.center(80)}{Col.END}")
+    print(f"{Col.YELLOW}{'='*80}{Col.END}")
+    print(f"{Col.BOLD}{Col.BLUE}{'ID':<5}{'ITEMS':<35}{'HALF RATE (₹)':<20}{'FULL RATE (₹)':<20}{Col.END}")
+    print(f"{Col.YELLOW}{'-'*80}{Col.END}")
+    for it in items:
+        print(f"{Col.GREEN}{it.get('id', ''):<5}{Col.END}"
+              f"{Col.CYAN}{it.get('name', ''):<35}{Col.END}"
+              f"{Col.YELLOW}{str(it.get('half_plate_rate')):<20}{Col.END}"
+              f"{Col.YELLOW}{str(it.get('full_plate_rate')):<20}{Col.END}")
+    print(f"{Col.YELLOW}{'='*80}{Col.END}")
 
-    
-    print("Restaurant Menu Management")
-    print("1 - List menu")
-    print("2 - Staff: take customer order")
-    print("3 - Admin: add dish")
-    print("4 - Admin: update dish")
-    print("5 - Admin: delete dish")
-    print("6 - Exit")
-    print()  # space
+def staff_view_menu() -> None:
+    items = load_menu()
+    print_menu(items, title="CHATORA _RESTAURANT")
 
+def admin_view_menu() -> None:
+    items = load_menu()
+    print_menu(items, title="CHATORA _RESTAURANT")
+
+def add_item(items: List[Dict[str, Any]]) -> None:
+    print(f"{Col.HEADER}--- Add Menu Item ---{Col.END}")
+    new_id = input("ID: ").strip()
+    if any(str(i.get("id")) == new_id for i in items):
+        print(f"{Col.RED}Item with this ID already exists. Aborting.{Col.END}")
+        return
+    name = input("Item name: ").strip()
+    try:
+        half = float(input("Half plate rate: ").strip())
+        full = float(input("Full plate rate: ").strip())
+    except ValueError:
+        print(f"{Col.RED}Invalid rate entered. Aborting.{Col.END}")
+        return
+    items.append({"id": new_id, "name": name, "half_plate_rate": half, "full_plate_rate": full})
+    save_menu(items)
+    print(f"{Col.GREEN}Item added successfully.{Col.END}")
+
+def update_item(items: List[Dict[str, Any]]) -> None:
+    print(f"{Col.HEADER}--- Update Menu Item ---{Col.END}")
+    item_id = input("Enter ID to update: ").strip()
+    idx = next((i for i, it in enumerate(items) if str(it.get('id')) == item_id), -1)
+    if idx == -1:
+        print(f"{Col.RED}Item not found.{Col.END}")
+        return
+    it = items[idx]
+    print(f"Leave blank to keep current value. Current name: {it.get('name')}")
+    name = input("New name: ").strip()
+    if name:
+        it['name'] = name
+    try:
+        half = input("New half plate rate: ").strip()
+        if half:
+            it['half_plate_rate'] = float(half)
+        full = input("New full plate rate: ").strip()
+        if full:
+            it['full_plate_rate'] = float(full)
+    except ValueError:
+        print(f"{Col.RED}Invalid rate input. Aborting update.{Col.END}")
+        return
+    items[idx] = it
+    save_menu(items)
+    print(f"{Col.GREEN}Item updated successfully.{Col.END}")
+
+def delete_item(items: List[Dict[str, Any]]) -> None:
+    print(f"{Col.HEADER}--- Delete Menu Item ---{Col.END}")
+    item_id = input("Enter ID to delete: ").strip()
+    idx = next((i for i, it in enumerate(items) if str(it.get('id')) == item_id), -1)
+    if idx == -1:
+        print(f"{Col.RED}Item not found.{Col.END}")
+        return
+    it = items[idx]
+    confirm = input(f"Type DELETE to remove {it.get('name')}: ")
+    if confirm == "DELETE":
+        items.pop(idx)
+        save_menu(items)
+        print(f"{Col.GREEN}Item deleted.{Col.END}")
+    else:
+        print("Delete aborted.")
+
+def admin_menu_loop() -> None:
+    if not authenticate_admin():
+        return
+    items = load_menu()
     while True:
-        choice = input("Choose option (1-6, 'm' to show menu again, 'q' to quit): ").strip().lower()
-        if choice == "1":
-            manager.list_menu()
-        elif choice == "2":
-            manager.staff_take_order(auth_data)
-        elif choice == "3":
-            manager.add_dish(auth_data)
-        elif choice == "4":
-            manager.update_dish(auth_data)
-        elif choice == "5":
-            manager.delete_dish(auth_data)
-        elif choice == "6" or choice == "q":
-            print("Goodbye!")
+        print()
+        print(f"{Col.BOLD}Admin Menu:{Col.END}")
+        print("1. View menu")
+        print("2. Add item")
+        print("3. Update item")
+        print("4. Delete item")
+        print("5. Exit to main application")
+        choice = input("Choose (1-5): ").strip()
+        if choice == '1':
+            admin_view_menu()
+        elif choice == '2':
+            add_item(items)
+            items = load_menu()
+        elif choice == '3':
+            update_item(items)
+            items = load_menu()
+        elif choice == '4':
+            delete_item(items)
+            items = load_menu()
+        elif choice == '5':
             break
-        elif choice == "m":
-            
-            print("Restaurant Menu Management")
-            print("1 - List menu")
-            print("2 - Staff: take customer order")
-            print("3 - Admin: add dish")
-            print("4 - Admin: update dish")
-            print("5 - Admin: delete dish")
-            print("6 - Exit")
-            print()
         else:
-            print("Invalid choice. Type 1-6, 'm' to show menu, or 'q' to quit.")
+            print("Invalid choice.")
 
-
-if __name__ == "__main__":
-    main()
+def show_menu() -> None:
+    while True:
+        print()
+        print(f"{Col.CYAN}{Col.BOLD}--- MENU HANDLING ---{Col.END}")
+        print("1. Staff - View Menu")
+        print("2. Admin - Manage Menu")
+        print("3. Exit to main application")
+        ch = input("Choose (1-3): ").strip()
+        if ch == '1':
+            staff_view_menu()
+        elif ch == '2':
+            admin_menu_loop()
+        elif ch == '3':
+            break
+        else:
+            print("Invalid choice. Try again.")

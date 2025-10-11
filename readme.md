@@ -1,58 +1,39 @@
-🏪 Restaurant Management System — Staff Authentication Module
-
-This module manages staff registration and authentication for the Restaurant Management System.  
-It allows the admin to add, update, delete, search, and view staff information using a JSON-based storage system.
-
----
-
-
-# 🍽️ Restaurant Menu Management System (`menu_handling.py`)
-
-
-
-`menu_handling.py` is a Python-based menu management system for a restaurant.  
-It allows **staff** to take customer orders and **admins** to manage the restaurant’s menu — including adding, updating, and deleting dishes — all backed by simple JSON-based storage.
-
-The system separates staff and admin privileges using a lightweight authentication module (`user_authentication.py`).
-
----
-
-
-
-Order management for Restaurant_management_system (domain/order.py)
-- Staff can create and view orders.
-- Only admin can modify or cancel orders (admin authentication required).
-- Orders are persisted to ../database/order.json
-
-Dependencies:
-- user_authentication.py (for admin authentication and load_data)
-- menu_handling.py (to look up dishes and prices)
-
-
-# domain/bill.py
 """
-Billing system for Restaurant_management_system
-- Staff can create bills for existing orders (from ../database/order.json).
-- Bills are persisted to ../database/bill.json
-- Only admin can modify or cancel a bill (admin authentication required).
+registration.py
 
-This module expects the following helpers in the same `domain` package:
-- user_authentication.load_data and user_authentication.admin_authenticate
-- order.OrderManager or direct access to order JSON (we import OrderManager here)
-- menu_handling.MenuManager is optional (used for display)
+Handles staff registration and management (view, add, update, delete) by admin.
+This module no longer runs a CLI loop when executed directly. Instead it exposes a single
+function `show_menu()` which prints the admin menu and handles user choices. Call
+`show_menu()` from your project's `main.py` to display the registration menu.
+
+Admin credentials (hard-coded per specification):
+    name: suman rathore
+    id: 100
+    email: suman@gmail.com
+    password: suman123
+
+Data storage: JSON file placed in the project's `database` folder: ../database/staffs.json
+
+Usage from main.py:
+    from authentication.registration import show_menu
+    show_menu()
+
 """
 
-# domain/table_booking.py
 """
-Table booking system for Restaurant_management_system
-- 10 tables, each with 6 seats.
-- Staff can create bookings for customers (name, contact, date, time, party size).
-- Staff can view availability, check menu, create order and payment tied to a booking.
-- Only admin can modify or cancel bookings after creation (admin authentication required).
-- Bookings are saved to ../database/booking.json
+menu_handling.py
 
-Integrations used (expected to exist in the `domain` package):
-- user_authentication.load_data and user_authentication.admin_authenticate
-- menu_handling.MenuManager
-- order.OrderManager (to create orders tied to a booking)
-- bill.BillManager (to create bills from orders)
+Organized and colorful menu management for restaurant_management_system/domain
+
+Features:
+- Menu items: ID, Item Name, Half Rate, Full Rate
+- Displays menu in a clean, table-like format
+- Staff can view the menu (read-only)
+- Admin can view/add/update/delete menu items
+- Data stored in ../database/menu.json
+- Minimum 50 predefined items with colored terminal output
+
+Usage from main.py:
+    from domain.menu_handling import show_menu
+    show_menu()
+"""
