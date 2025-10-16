@@ -1,0 +1,4 @@
+2025-10-16 17:43:12,214 - INFO - New staff registered: 101 - hari
+2025-10-16 17:43:49,086 - INFO - New staff registered: 102 - yuvi
+2025-10-16 17:44:06,144 - INFO - Staff logged in: 101 - hari
+2025-10-16 17:46:20,682 - INFO - New booking 1760597180681 for dharm at 2025-10-18T12:00:00

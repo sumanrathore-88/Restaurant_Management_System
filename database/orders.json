@@ -1,0 +1,22 @@
+{
+  "1760597226052": {
+    "timestamp": "2025-10-16T12:17:06.052378",
+    "staff_id": 0,
+    "items": [
+      {
+        "id": "30",
+        "name": "Roti",
+        "price": 10,
+        "qty": 1
+      },
+      {
+        "id": "2",
+        "name": "Paneer Butter Masala",
+        "price": 220,
+        "qty": 2
+      }
+    ],
+    "total": 450,
+    "paid": true
+  }
+}

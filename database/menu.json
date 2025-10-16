@@ -1,320 +1,320 @@
-[
-    {
-        "id": "1",
-        "name": "Butter Chicken",
-        "half_plate_rate": 150,
-        "full_plate_rate": 280
-    },
-    {
-        "id": "2",
-        "name": "Paneer Butter Masala",
-        "half_plate_rate": 120,
-        "full_plate_rate": 220
-    },
-    {
-        "id": "3",
-        "name": "Dal Tadka",
-        "half_plate_rate": 80,
-        "full_plate_rate": 150
-    },
-    {
-        "id": "4",
-        "name": "Veg Fried Rice",
-        "half_plate_rate": 70,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "5",
-        "name": "Chicken Biryani",
-        "half_plate_rate": 140,
-        "full_plate_rate": 260
-    },
-    {
-        "id": "6",
-        "name": "Mutton Biryani",
-        "half_plate_rate": 170,
-        "full_plate_rate": 320
-    },
-    {
-        "id": "7",
-        "name": "Masala Dosa",
-        "half_plate_rate": 60,
-        "full_plate_rate": 110
-    },
-    {
-        "id": "8",
-        "name": "Idli Sambar",
-        "half_plate_rate": 40,
-        "full_plate_rate": 70
-    },
-    {
-        "id": "9",
-        "name": "Vada Sambar",
-        "half_plate_rate": 45,
-        "full_plate_rate": 80
-    },
-    {
-        "id": "10",
-        "name": "Pav Bhaji",
-        "half_plate_rate": 70,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "11",
-        "name": "Chole Bhature",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "12",
-        "name": "Rajma Chawal",
-        "half_plate_rate": 85,
-        "full_plate_rate": 150
-    },
-    {
-        "id": "13",
-        "name": "Kadhai Paneer",
-        "half_plate_rate": 130,
-        "full_plate_rate": 240
-    },
-    {
-        "id": "14",
-        "name": "Aloo Gobi",
-        "half_plate_rate": 80,
-        "full_plate_rate": 140
-    },
-    {
-        "id": "15",
-        "name": "Palak Paneer",
-        "half_plate_rate": 120,
-        "full_plate_rate": 220
-    },
-    {
-        "id": "16",
-        "name": "Paneer Tikka",
-        "half_plate_rate": 130,
-        "full_plate_rate": 240
-    },
-    {
-        "id": "17",
-        "name": "Chicken Tikka",
-        "half_plate_rate": 160,
-        "full_plate_rate": 290
-    },
-    {
-        "id": "18",
-        "name": "Fish Curry",
-        "half_plate_rate": 180,
-        "full_plate_rate": 320
-    },
-    {
-        "id": "19",
-        "name": "Egg Curry",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "20",
-        "name": "Veg Manchurian",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "21",
-        "name": "Hakka Noodles",
-        "half_plate_rate": 80,
-        "full_plate_rate": 140
-    },
-    {
-        "id": "22",
-        "name": "Chicken Noodles",
-        "half_plate_rate": 100,
-        "full_plate_rate": 180
-    },
-    {
-        "id": "23",
-        "name": "Paneer Fried Rice",
-        "half_plate_rate": 100,
-        "full_plate_rate": 180
-    },
-    {
-        "id": "24",
-        "name": "Momos (Veg)",
-        "half_plate_rate": 60,
-        "full_plate_rate": 100
-    },
-    {
-        "id": "25",
-        "name": "Momos (Chicken)",
-        "half_plate_rate": 70,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "26",
-        "name": "Spring Roll",
-        "half_plate_rate": 70,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "27",
-        "name": "Sweet Corn Soup",
-        "half_plate_rate": 60,
-        "full_plate_rate": 110
-    },
-    {
-        "id": "28",
-        "name": "Tomato Soup",
-        "half_plate_rate": 55,
-        "full_plate_rate": 100
-    },
-    {
-        "id": "29",
-        "name": "Hot & Sour Soup",
-        "half_plate_rate": 65,
-        "full_plate_rate": 120
-    },
-    {
-        "id": "30",
-        "name": "Roti",
-        "half_plate_rate": 10,
-        "full_plate_rate": 20
-    },
-    {
-        "id": "31",
-        "name": "Naan",
-        "half_plate_rate": 25,
-        "full_plate_rate": 45
-    },
-    {
-        "id": "32",
-        "name": "Butter Naan",
-        "half_plate_rate": 30,
-        "full_plate_rate": 55
-    },
-    {
-        "id": "33",
-        "name": "Garlic Naan",
-        "half_plate_rate": 35,
-        "full_plate_rate": 60
-    },
-    {
-        "id": "34",
-        "name": "Plain Rice",
-        "half_plate_rate": 60,
-        "full_plate_rate": 100
-    },
-    {
-        "id": "35",
-        "name": "Jeera Rice",
-        "half_plate_rate": 70,
-        "full_plate_rate": 120
-    },
-    {
-        "id": "36",
-        "name": "Curd Rice",
-        "half_plate_rate": 70,
-        "full_plate_rate": 120
-    },
-    {
-        "id": "37",
-        "name": "Lemon Rice",
-        "half_plate_rate": 75,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "38",
-        "name": "Veg Pulao",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "39",
-        "name": "Chicken Pulao",
-        "half_plate_rate": 110,
-        "full_plate_rate": 190
-    },
-    {
-        "id": "40",
-        "name": "Paneer Pulao",
-        "half_plate_rate": 100,
-        "full_plate_rate": 180
-    },
-    {
-        "id": "41",
-        "name": "Mutton Curry",
-        "half_plate_rate": 190,
-        "full_plate_rate": 340
-    },
-    {
-        "id": "42",
-        "name": "Butter Roti",
-        "half_plate_rate": 15,
-        "full_plate_rate": 30
-    },
-    {
-        "id": "43",
-        "name": "Tandoori Chicken",
-        "half_plate_rate": 180,
-        "full_plate_rate": 340
-    },
-    {
-        "id": "44",
-        "name": "Grilled Sandwich",
-        "half_plate_rate": 60,
-        "full_plate_rate": 110
-    },
-    {
-        "id": "45",
-        "name": "Cheese Sandwich",
-        "half_plate_rate": 70,
-        "full_plate_rate": 120
-    },
-    {
-        "id": "46",
-        "name": "Paneer Wrap",
-        "half_plate_rate": 80,
-        "full_plate_rate": 140
-    },
-    {
-        "id": "47",
-        "name": "Chicken Wrap",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "48",
-        "name": "Veg Burger",
-        "half_plate_rate": 70,
-        "full_plate_rate": 130
-    },
-    {
-        "id": "49",
-        "name": "Chicken Burger",
-        "half_plate_rate": 90,
-        "full_plate_rate": 160
-    },
-    {
-        "id": "50",
-        "name": "French Fries",
-        "half_plate_rate": 60,
-        "full_plate_rate": 110
-    },
-    {
-        "id": "51",
-        "name": "Cold Coffee",
-        "half_plate_rate": 50,
-        "full_plate_rate": 90
-    },
-    {
-        "id": "52",
-        "name": "Masala Tea",
-        "half_plate_rate": 25,
-        "full_plate_rate": 40
-    },
-    {
-        "id": "53",
-        "name": "Lassi",
-        "half_plate_rate": 50,
-        "full_plate_rate": 90
-    }
-]
+{
+  "1": [
+    "Butter Chicken",
+    150,
+    280,
+    "Non-Veg"
+  ],
+  "2": [
+    "Paneer Butter Masala",
+    120,
+    220,
+    "Veg"
+  ],
+  "3": [
+    "Dal Tadka",
+    80,
+    150,
+    "Veg"
+  ],
+  "4": [
+    "Veg Fried Rice",
+    70,
+    130,
+    "Veg"
+  ],
+  "5": [
+    "Chicken Biryani",
+    140,
+    260,
+    "Non-Veg"
+  ],
+  "6": [
+    "Mutton Biryani",
+    170,
+    320,
+    "Non-Veg"
+  ],
+  "7": [
+    "Masala Dosa",
+    60,
+    110,
+    "Veg"
+  ],
+  "8": [
+    "Idli Sambar",
+    40,
+    70,
+    "Veg"
+  ],
+  "9": [
+    "Vada Sambar",
+    45,
+    80,
+    "Veg"
+  ],
+  "10": [
+    "Pav Bhaji",
+    70,
+    130,
+    "Veg"
+  ],
+  "11": [
+    "Chole Bhature",
+    90,
+    160,
+    "Veg"
+  ],
+  "12": [
+    "Rajma Chawal",
+    85,
+    150,
+    "Veg"
+  ],
+  "13": [
+    "Kadhai Paneer",
+    130,
+    240,
+    "Veg"
+  ],
+  "14": [
+    "Aloo Gobi",
+    80,
+    140,
+    "Veg"
+  ],
+  "15": [
+    "Palak Paneer",
+    120,
+    220,
+    "Veg"
+  ],
+  "16": [
+    "Paneer Tikka",
+    130,
+    240,
+    "Veg"
+  ],
+  "17": [
+    "Chicken Tikka",
+    160,
+    290,
+    "Non-Veg"
+  ],
+  "18": [
+    "Fish Curry",
+    180,
+    320,
+    "Non-Veg"
+  ],
+  "19": [
+    "Egg Curry",
+    90,
+    160,
+    "Non-Veg"
+  ],
+  "20": [
+    "Veg Manchurian",
+    90,
+    160,
+    "Veg"
+  ],
+  "21": [
+    "Hakka Noodles",
+    80,
+    140,
+    "Veg"
+  ],
+  "22": [
+    "Chicken Noodles",
+    100,
+    180,
+    "Non-Veg"
+  ],
+  "23": [
+    "Paneer Fried Rice",
+    100,
+    180,
+    "Veg"
+  ],
+  "24": [
+    "Momos (Veg)",
+    60,
+    100,
+    "Veg"
+  ],
+  "25": [
+    "Momos (Chicken)",
+    70,
+    130,
+    "Non-Veg"
+  ],
+  "26": [
+    "Spring Roll",
+    70,
+    130,
+    "Veg"
+  ],
+  "27": [
+    "Sweet Corn Soup",
+    60,
+    110,
+    "Veg"
+  ],
+  "28": [
+    "Tomato Soup",
+    55,
+    100,
+    "Veg"
+  ],
+  "29": [
+    "Hot & Sour Soup",
+    65,
+    120,
+    "Veg"
+  ],
+  "30": [
+    "Roti",
+    10,
+    20,
+    "Veg"
+  ],
+  "31": [
+    "Naan",
+    25,
+    45,
+    "Veg"
+  ],
+  "32": [
+    "Butter Naan",
+    30,
+    55,
+    "Veg"
+  ],
+  "33": [
+    "Garlic Naan",
+    35,
+    60,
+    "Veg"
+  ],
+  "34": [
+    "Plain Rice",
+    60,
+    100,
+    "Veg"
+  ],
+  "35": [
+    "Jeera Rice",
+    70,
+    120,
+    "Veg"
+  ],
+  "36": [
+    "Curd Rice",
+    70,
+    120,
+    "Veg"
+  ],
+  "37": [
+    "Lemon Rice",
+    75,
+    130,
+    "Veg"
+  ],
+  "38": [
+    "Veg Pulao",
+    90,
+    160,
+    "Veg"
+  ],
+  "39": [
+    "Chicken Pulao",
+    110,
+    190,
+    "Non-Veg"
+  ],
+  "40": [
+    "Paneer Pulao",
+    100,
+    180,
+    "Veg"
+  ],
+  "41": [
+    "Mutton Curry",
+    190,
+    340,
+    "Non-Veg"
+  ],
+  "42": [
+    "Butter Roti",
+    15,
+    30,
+    "Veg"
+  ],
+  "43": [
+    "Tandoori Chicken",
+    180,
+    340,
+    "Non-Veg"
+  ],
+  "44": [
+    "Grilled Sandwich",
+    60,
+    110,
+    "Veg"
+  ],
+  "45": [
+    "Cheese Sandwich",
+    70,
+    120,
+    "Veg"
+  ],
+  "46": [
+    "Paneer Wrap",
+    80,
+    140,
+    "Veg"
+  ],
+  "47": [
+    "Chicken Wrap",
+    90,
+    160,
+    "Non-Veg"
+  ],
+  "48": [
+    "Veg Burger",
+    70,
+    130,
+    "Veg"
+  ],
+  "49": [
+    "Chicken Burger",
+    90,
+    160,
+    "Non-Veg"
+  ],
+  "50": [
+    "French Fries",
+    60,
+    110,
+    "Veg"
+  ],
+  "51": [
+    "Cold Coffee",
+    50,
+    90,
+    "Drink"
+  ],
+  "52": [
+    "Masala Tea",
+    25,
+    40,
+    "Drink"
+  ],
+  "53": [
+    "Lassi",
+    50,
+    90,
+    "Drink"
+  ]
+}

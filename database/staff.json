@@ -1,0 +1,26 @@
+{
+  "100": {
+    "staff_id": 100,
+    "name": "suman rathore",
+    "email": "suman@gmail.com",
+    "password": "suman123",
+    "contact": "",
+    "qualification": "admin"
+  },
+  "101": {
+    "staff_id": 101,
+    "name": "hari",
+    "email": "hari@gmail.com",
+    "password": "hari123",
+    "contact": "1478523698",
+    "qualification": "10"
+  },
+  "102": {
+    "staff_id": 102,
+    "name": "yuvi",
+    "email": "yuvi@gmail.com",
+    "password": "yuvi123",
+    "contact": "4563217899",
+    "qualification": "12"
+  }
+}
