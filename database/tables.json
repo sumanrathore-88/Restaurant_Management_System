@@ -1,0 +1,122 @@
+{
+  "1": {
+    "table_no": 1,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "2": {
+    "table_no": 2,
+    "booked": true,
+    "name": "dharm singh",
+    "phone": "1236547412"
+  },
+  "3": {
+    "table_no": 3,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "4": {
+    "table_no": 4,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "5": {
+    "table_no": 5,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "6": {
+    "table_no": 6,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "7": {
+    "table_no": 7,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "8": {
+    "table_no": 8,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "9": {
+    "table_no": 9,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "10": {
+    "table_no": 10,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "11": {
+    "table_no": 11,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "12": {
+    "table_no": 12,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "13": {
+    "table_no": 13,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "14": {
+    "table_no": 14,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "15": {
+    "table_no": 15,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "16": {
+    "table_no": 16,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "17": {
+    "table_no": 17,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "18": {
+    "table_no": 18,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "19": {
+    "table_no": 19,
+    "booked": false,
+    "name": null,
+    "phone": null
+  },
+  "20": {
+    "table_no": 20,
+    "booked": false,
+    "name": null,
+    "phone": null
+  }
+}

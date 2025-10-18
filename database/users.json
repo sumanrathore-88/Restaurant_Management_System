@@ -1,26 +1,26 @@
 {
   "100": {
-    "staff_id": 100,
+    "id": 100,
     "name": "suman rathore",
     "email": "suman@gmail.com",
-    "password": "suman123",
-    "contact": "",
-    "qualification": "admin"
+    "password": "suman123"
   },
   "101": {
-    "staff_id": 101,
+    "id": 101,
     "name": "hari",
     "email": "hari@gmail.com",
     "password": "hari123",
-    "contact": "1478523698",
-    "qualification": "10"
+    "qualification": "10",
+    "contact": "1023564789",
+    "role": "staff"
   },
   "102": {
-    "staff_id": 102,
+    "id": 102,
     "name": "yuvi",
     "email": "yuvi@gmail.com",
     "password": "yuvi123",
-    "contact": "4563217899",
-    "qualification": "12"
+    "qualification": "12",
+    "contact": "7412589632",
+    "role": "staff"
   }
 }

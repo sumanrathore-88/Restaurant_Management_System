@@ -1,22 +1,65 @@
 {
-  "1760597226052": {
-    "timestamp": "2025-10-16T12:17:06.052378",
-    "staff_id": 0,
-    "items": [
+  "1": {
+    "order_id": "1",
+    "staff": "hari",
+    "lines": [
       {
-        "id": "30",
-        "name": "Roti",
-        "price": 10,
-        "qty": 1
-      },
+        "id": "4",
+        "name": "Veg Fried Rice",
+        "plate": "half",
+        "unit_price": 70,
+        "qty": 2,
+        "amount": 140
+      }
+    ],
+    "subtotal": 140,
+    "cgst": 7.0,
+    "sgst": 7.0,
+    "total": 154.0,
+    "payment_method": "upi",
+    "payment_ref": "4568"
+  },
+  "2": {
+    "order_id": "2",
+    "staff": "hari",
+    "lines": [
+      {
+        "id": "1",
+        "name": "Butter Chicken",
+        "plate": "half",
+        "unit_price": 150,
+        "qty": 2,
+        "amount": 300
+      }
+    ],
+    "subtotal": 300.0,
+    "cgst": 15.0,
+    "sgst": 15.0,
+    "total": 330.0,
+    "payment_method": "cash",
+    "payment_ref": "cash_received",
+    "timestamp": "2025-10-18T16:38:21.510498Z"
+  },
+  "3": {
+    "order_id": "3",
+    "staff": "yuvi",
+    "lines": [
       {
         "id": "2",
         "name": "Paneer Butter Masala",
-        "price": 220,
-        "qty": 2
+        "plate": "full",
+        "unit_price": 220,
+        "qty": 1,
+        "amount": 220
       }
     ],
-    "total": 450,
-    "paid": true
+    "subtotal": 220.0,
+    "cgst": 11.0,
+    "sgst": 11.0,
+    "total": 242.0,
+    "payment_method": "netbanking",
+    "payment_ref": "1254",
+    "timestamp": "2025-10-18T16:39:32.784570Z",
+    "table_no": 1
   }
 }

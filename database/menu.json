@@ -36,285 +36,255 @@
     "Non-Veg"
   ],
   "7": [
-    "Masala Dosa",
-    60,
-    110,
-    "Veg"
-  ],
-  "8": [
-    "Idli Sambar",
-    40,
-    70,
-    "Veg"
-  ],
-  "9": [
-    "Vada Sambar",
-    45,
-    80,
-    "Veg"
-  ],
-  "10": [
-    "Pav Bhaji",
-    70,
-    130,
-    "Veg"
-  ],
-  "11": [
-    "Chole Bhature",
-    90,
-    160,
-    "Veg"
-  ],
-  "12": [
-    "Rajma Chawal",
-    85,
-    150,
-    "Veg"
-  ],
-  "13": [
-    "Kadhai Paneer",
-    130,
-    240,
-    "Veg"
-  ],
-  "14": [
     "Aloo Gobi",
     80,
     140,
     "Veg"
   ],
-  "15": [
-    "Palak Paneer",
-    120,
-    220,
+  "8": [
+    "Chole Bhature",
+    90,
+    160,
     "Veg"
+  ],
+  "9": [
+    "Samosa (2 pcs)",
+    40,
+    70,
+    "Veg"
+  ],
+  "10": [
+    "Masala Dosa",
+    70,
+    130,
+    "Veg"
+  ],
+  "11": [
+    "Idli (2 pcs)",
+    40,
+    70,
+    "Veg"
+  ],
+  "12": [
+    "Vada Pav",
+    50,
+    90,
+    "Veg"
+  ],
+  "13": [
+    "Pav Bhaji",
+    80,
+    150,
+    "Veg"
+  ],
+  "14": [
+    "Paneer Tikka",
+    140,
+    260,
+    "Veg"
+  ],
+  "15": [
+    "Fish Curry",
+    150,
+    280,
+    "Non-Veg"
   ],
   "16": [
-    "Paneer Tikka",
-    130,
-    240,
-    "Veg"
-  ],
-  "17": [
-    "Chicken Tikka",
-    160,
-    290,
-    "Non-Veg"
-  ],
-  "18": [
-    "Fish Curry",
-    180,
-    320,
-    "Non-Veg"
-  ],
-  "19": [
     "Egg Curry",
     90,
     160,
     "Non-Veg"
   ],
-  "20": [
-    "Veg Manchurian",
-    90,
+  "17": [
+    "Kadai Chicken",
     160,
+    300,
+    "Non-Veg"
+  ],
+  "18": [
+    "Malai Kofta",
+    130,
+    240,
+    "Veg"
+  ],
+  "19": [
+    "Palak Paneer",
+    120,
+    220,
+    "Veg"
+  ],
+  "20": [
+    "Naan (2 pcs)",
+    40,
+    70,
     "Veg"
   ],
   "21": [
-    "Hakka Noodles",
-    80,
-    140,
-    "Veg"
+    "Rogan Josh",
+    170,
+    320,
+    "Non-Veg"
   ],
   "22": [
-    "Chicken Noodles",
-    100,
-    180,
+    "Seekh Kebab (3 pcs)",
+    150,
+    280,
     "Non-Veg"
   ],
   "23": [
-    "Paneer Fried Rice",
-    100,
-    180,
-    "Veg"
+    "Tandoori Chicken (Half)",
+    220,
+    400,
+    "Non-Veg"
   ],
   "24": [
-    "Momos (Veg)",
+    "Gulab Jamun (2 pcs)",
     60,
     100,
     "Veg"
   ],
   "25": [
-    "Momos (Chicken)",
+    "Raita",
+    40,
     70,
-    130,
-    "Non-Veg"
+    "Veg"
   ],
   "26": [
-    "Spring Roll",
-    70,
-    130,
+    "Lassi (Sweet)",
+    50,
+    90,
     "Veg"
   ],
   "27": [
-    "Sweet Corn Soup",
-    60,
-    110,
-    "Veg"
-  ],
-  "28": [
-    "Tomato Soup",
-    55,
-    100,
-    "Veg"
-  ],
-  "29": [
-    "Hot & Sour Soup",
-    65,
-    120,
-    "Veg"
-  ],
-  "30": [
-    "Roti",
-    10,
-    20,
-    "Veg"
-  ],
-  "31": [
-    "Naan",
-    25,
-    45,
-    "Veg"
-  ],
-  "32": [
-    "Butter Naan",
-    30,
-    55,
-    "Veg"
-  ],
-  "33": [
-    "Garlic Naan",
-    35,
-    60,
-    "Veg"
-  ],
-  "34": [
-    "Plain Rice",
-    60,
-    100,
-    "Veg"
-  ],
-  "35": [
-    "Jeera Rice",
-    70,
-    120,
-    "Veg"
-  ],
-  "36": [
-    "Curd Rice",
-    70,
-    120,
-    "Veg"
-  ],
-  "37": [
-    "Lemon Rice",
-    75,
-    130,
-    "Veg"
-  ],
-  "38": [
-    "Veg Pulao",
+    "Paneer Paratha",
     90,
     160,
     "Veg"
   ],
-  "39": [
-    "Chicken Pulao",
-    110,
-    190,
+  "28": [
+    "Methi Mutter Malai",
+    120,
+    220,
+    "Veg"
+  ],
+  "29": [
+    "Aloo Paratha",
+    80,
+    140,
+    "Veg"
+  ],
+  "30": [
+    "Chicken 65",
+    150,
+    280,
     "Non-Veg"
   ],
-  "40": [
-    "Paneer Pulao",
+  "31": [
+    "Veg Manchurian",
+    110,
+    200,
+    "Veg"
+  ],
+  "32": [
+    "Chili Fish",
+    160,
+    300,
+    "Non-Veg"
+  ],
+  "33": [
+    "Schezwan Fried Rice",
+    90,
+    160,
+    "Veg"
+  ],
+  "34": [
+    "Chicken Noodles",
+    100,
+    180,
+    "Non-Veg"
+  ],
+  "35": [
+    "Murg Makhani",
+    160,
+    300,
+    "Non-Veg"
+  ],
+  "36": [
+    "Bhindi Masala",
+    90,
+    160,
+    "Veg"
+  ],
+  "37": [
+    "Kaddu Ki Sabzi",
+    80,
+    150,
+    "Veg"
+  ],
+  "38": [
+    "Tawa Pulao",
     100,
     180,
     "Veg"
   ],
-  "41": [
-    "Mutton Curry",
-    190,
-    340,
+  "39": [
+    "Bombay Sandwich",
+    70,
+    130,
+    "Veg"
+  ],
+  "40": [
+    "Keema Pav",
+    130,
+    240,
     "Non-Veg"
   ],
+  "41": [
+    "Matar Paneer",
+    120,
+    220,
+    "Veg"
+  ],
   "42": [
-    "Butter Roti",
-    15,
-    30,
+    "Vegetable Korma",
+    110,
+    200,
     "Veg"
   ],
   "43": [
-    "Tandoori Chicken",
+    "Chicken Shahi Korma",
     180,
     340,
     "Non-Veg"
   ],
   "44": [
-    "Grilled Sandwich",
+    "Corn Chaat",
     60,
-    110,
+    100,
     "Veg"
   ],
   "45": [
-    "Cheese Sandwich",
-    70,
-    120,
-    "Veg"
+    "Prawn Curry",
+    180,
+    340,
+    "Non-Veg"
   ],
   "46": [
-    "Paneer Wrap",
-    80,
-    140,
+    "Kadhi Pakora",
+    90,
+    160,
     "Veg"
   ],
   "47": [
-    "Chicken Wrap",
-    90,
-    160,
-    "Non-Veg"
+    "Sheer Khurma",
+    80,
+    150,
+    "Veg"
   ],
   "48": [
-    "Veg Burger",
-    70,
-    130,
-    "Veg"
-  ],
-  "49": [
-    "Chicken Burger",
+    "Rabri",
     90,
     160,
-    "Non-Veg"
-  ],
-  "50": [
-    "French Fries",
-    60,
-    110,
     "Veg"
-  ],
-  "51": [
-    "Cold Coffee",
-    50,
-    90,
-    "Drink"
-  ],
-  "52": [
-    "Masala Tea",
-    25,
-    40,
-    "Drink"
-  ],
-  "53": [
-    "Lassi",
-    50,
-    90,
-    "Drink"
   ]
 }
