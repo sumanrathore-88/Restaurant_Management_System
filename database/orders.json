@@ -1,65 +1,48 @@
-{
-  "1": {
-    "order_id": "1",
-    "staff": "hari",
-    "lines": [
+[
+  {
+    "order_id": 1,
+    "actor": {
+      "id": 100,
+      "name": "suman rathore",
+      "role": "admin"
+    },
+    "items": [
       {
-        "id": "4",
-        "name": "Veg Fried Rice",
+        "id": 1,
+        "item": "Butter Chicken 1",
+        "type": "Non-Veg",
         "plate": "half",
-        "unit_price": 70,
         "qty": 2,
-        "amount": 140
+        "price_each": 102,
+        "subtotal": 204
       }
     ],
-    "subtotal": 140,
-    "cgst": 7.0,
-    "sgst": 7.0,
-    "total": 154.0,
-    "payment_method": "upi",
-    "payment_ref": "4568"
-  },
-  "2": {
-    "order_id": "2",
-    "staff": "hari",
-    "lines": [
-      {
-        "id": "1",
-        "name": "Butter Chicken",
-        "plate": "half",
-        "unit_price": 150,
-        "qty": 2,
-        "amount": 300
-      }
-    ],
-    "subtotal": 300.0,
-    "cgst": 15.0,
-    "sgst": 15.0,
-    "total": 330.0,
+    "total": 204,
+    "datetime": "2025-10-23 18:18:31",
     "payment_method": "cash",
-    "payment_ref": "cash_received",
-    "timestamp": "2025-10-18T16:38:21.510498Z"
+    "paid": true
   },
-  "3": {
-    "order_id": "3",
-    "staff": "yuvi",
-    "lines": [
+  {
+    "order_id": 2,
+    "actor": {
+      "id": 100,
+      "name": "suman rathore",
+      "role": "admin"
+    },
+    "items": [
       {
-        "id": "2",
-        "name": "Paneer Butter Masala",
-        "plate": "full",
-        "unit_price": 220,
+        "id": 5,
+        "item": "Dal Makhani 5",
+        "type": "Non-Veg",
+        "plate": "half",
         "qty": 1,
-        "amount": 220
+        "price_each": 110,
+        "subtotal": 110
       }
     ],
-    "subtotal": 220.0,
-    "cgst": 11.0,
-    "sgst": 11.0,
-    "total": 242.0,
-    "payment_method": "netbanking",
-    "payment_ref": "1254",
-    "timestamp": "2025-10-18T16:39:32.784570Z",
-    "table_no": 1
+    "total": 110,
+    "datetime": "2025-10-23 18:25:08",
+    "payment_method": "cash",
+    "paid": true
   }
-}
+]

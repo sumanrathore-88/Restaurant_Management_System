@@ -1,52 +1,51 @@
-
-import json
+# domain/logs.py
 import os
+import json
 from datetime import datetime
-from typing import Any, Dict
 
-LOGS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
-LOG_FILE = os.path.join(LOGS_PATH, "logs.json")
+DB_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database")
+LOGS_JSON = os.path.join(DB_FOLDER, "logs.json")
+LOGS_TXT = os.path.join(DB_FOLDER, "logs.txt")
 
+def _format_datetime(dt=None, fmt="%Y-%m-%d %H:%M:%S"):
+    if dt is None:
+        dt = datetime.now()
+    return dt.strftime(fmt)
 
-def _ensure_log_file():
-    if not os.path.exists(LOGS_PATH):
-        os.makedirs(LOGS_PATH, exist_ok=True)
-    if not os.path.exists(LOG_FILE):
-        with open(LOG_FILE, "w") as f:
+def ensure_logs_exist():
+    if not os.path.exists(DB_FOLDER):
+        os.makedirs(DB_FOLDER, exist_ok=True)
+    if not os.path.exists(LOGS_JSON):
+        with open(LOGS_JSON, "w") as f:
             json.dump([], f)
+    if not os.path.exists(LOGS_TXT):
+        open(LOGS_TXT, "a").close()
 
-
-def _read_logs():
-    _ensure_log_file()
-    with open(LOG_FILE, "r") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            return []
-
-
-def _write_logs(logs):
-    _ensure_log_file()
-    with open(LOG_FILE, "w") as f:
-        json.dump(logs, f, indent=2)
-
-
-def log_event(event_type: str, message: str, data: Dict[str, Any] = None):
-    """Write a structured log entry to logs.json and print to console."""
-    _ensure_log_file()
-    logs = _read_logs()
+def log_event(level, message, actor=None):
+    ensure_logs_exist()
     entry = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
-        "event_type": event_type,
-        "message": message,
-        "data": data or {},
+        "timestamp": _format_datetime(),
+        "level": level,
+        "actor": actor,
+        "message": message
     }
-    logs.append(entry)
-    _write_logs(logs)
-    # Console feedback (helpful during development/running)
-    print(f"[{entry['timestamp']}] {event_type.upper()}: {message}")
+    # append to json list
+    try:
+        with open(LOGS_JSON, "r+") as f:
+            try:
+                data = json.load(f)
+            except Exception:
+                data = []
+            data.append(entry)
+            f.seek(0)
+            json.dump(data, f, indent=2)
+            f.truncate()
+    except Exception:
+        pass
 
-
-def get_recent_logs(limit: int = 20):
-    logs = _read_logs()
-    return logs[-limit:]
+    # append to txt
+    try:
+        with open(LOGS_TXT, "a") as f:
+            f.write(f"[{entry['timestamp']}] {level} - {actor or 'SYSTEM'} - {message}\n")
+    except Exception:
+        pass

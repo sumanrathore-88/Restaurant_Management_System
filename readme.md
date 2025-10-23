@@ -1,15 +1,18 @@
+# CHATORA - RESTAURANT_MANAGEMENT_SYSTEM
 
-# Chatora Restaurant - restaurant_management_system
+Structure:
+- authentication/registration.py : signin/signup operations (called from main.py)
+- domain/menu_order.py : main logic for menu, orders, booking, admin menu modifications
+- domain/validation.py : input validations
+- domain/logs.py : logging events to database/logs.json and logs.txt
+- database/*.json : created automatically on first run
 
-Simple terminal-based restaurant management system written in Python.
+Admin:
+- id: 100
+- name: suman rathore
+- email: suman@gmail.com
+- password: suman123
 
-Features:
-- Staff registration (staff id, name, email, password, contact, qualification)
-- Menu (50+ Indian items) with colorful terminal output
-- Take orders by staff and generate bills (offline and online)
-- Table booking, order from bookings and pay
-- JSON-based database stored in `database/` folder
-- Validation separated to `domain/validation.py`
-- Logging separated to `domain/logs.py`
-- Admin-only operations protected (admin id=100)
+
+
 

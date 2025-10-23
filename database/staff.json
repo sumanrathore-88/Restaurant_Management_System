@@ -1,0 +1,18 @@
+[
+  {
+    "id": 101,
+    "name": "yuvi",
+    "email": "yuvi@gmail.com",
+    "password": "yuvi123",
+    "contact": "123654789",
+    "qualification": "10"
+  },
+  {
+    "id": 102,
+    "name": "hari",
+    "email": "hari@gmail.com",
+    "password": "hari123",
+    "contact": "1235896478",
+    "qualification": "10"
+  }
+]

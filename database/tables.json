@@ -1,122 +1,111 @@
-{
-  "1": {
-    "table_no": 1,
-    "booked": false,
-    "name": null,
-    "phone": null
-  },
-  "2": {
-    "table_no": 2,
+[
+  {
+    "table": 1,
     "booked": true,
-    "name": "dharm singh",
-    "phone": "1236547412"
+    "customer": {
+      "name": "sumit",
+      "contact": "1236547898",
+      "datetime": "2025-10-23 18:19:40"
+    }
   },
-  "3": {
-    "table_no": 3,
+  {
+    "table": 2,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "4": {
-    "table_no": 4,
+  {
+    "table": 3,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "5": {
-    "table_no": 5,
+  {
+    "table": 4,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "6": {
-    "table_no": 6,
+  {
+    "table": 5,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "7": {
-    "table_no": 7,
+  {
+    "table": 6,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "8": {
-    "table_no": 8,
+  {
+    "table": 7,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "9": {
-    "table_no": 9,
+  {
+    "table": 8,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "10": {
-    "table_no": 10,
+  {
+    "table": 9,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "11": {
-    "table_no": 11,
+  {
+    "table": 10,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "12": {
-    "table_no": 12,
+  {
+    "table": 11,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "13": {
-    "table_no": 13,
+  {
+    "table": 12,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "14": {
-    "table_no": 14,
+  {
+    "table": 13,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "15": {
-    "table_no": 15,
+  {
+    "table": 14,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "16": {
-    "table_no": 16,
-    "booked": false,
-    "name": null,
-    "phone": null
+  {
+    "table": 15,
+    "booked": true,
+    "customer": {
+      "name": "chiya",
+      "contact": "4178523698",
+      "booking_datetime": "2025-10-24 11:30",
+      "created_at": "2025-10-23 18:29:25"
+    }
   },
-  "17": {
-    "table_no": 17,
+  {
+    "table": 16,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "18": {
-    "table_no": 18,
+  {
+    "table": 17,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "19": {
-    "table_no": 19,
+  {
+    "table": 18,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
   },
-  "20": {
-    "table_no": 20,
+  {
+    "table": 19,
     "booked": false,
-    "name": null,
-    "phone": null
+    "customer": null
+  },
+  {
+    "table": 20,
+    "booked": false,
+    "customer": null
   }
-}
+]
