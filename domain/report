@@ -1,0 +1,56 @@
+------------------------------------------------------------
+             CHATORA - RESTAURANT MANAGEMENT SYSTEM
+------------------------------------------------------------
+
+PROJECT REPORT
+------------------------------------------------------------
+Project Title : CHATORA – Restaurant Management System
+Language      : Python 3.x
+Paradigm      : Object-Oriented Programming (OOP)
+Database Type : JSON File-based Storage
+Developed By  : Suman Rathore
+Date Created  : October 2025
+------------------------------------------------------------
+
+1. INTRODUCTION
+------------------------------------------------------------
+CHATORA is a Python-based restaurant management system designed
+to automate common restaurant operations such as staff
+registration, food ordering, billing, and table booking.
+
+The system follows modular design principles using Python
+packages, file handling (JSON), and strong separation of logic
+into packages like authentication, domain, and database.
+
+------------------------------------------------------------
+2. OBJECTIVES
+------------------------------------------------------------
+- To create a modular and reusable Python package for managing
+  restaurant activities.
+- To implement user authentication for admin and staff.
+- To handle menu creation, order taking, and billing.
+- To support customer table booking (1 to 20 tables).
+- To maintain data using JSON files as lightweight databases.
+- To demonstrate exception handling and validation.
+- To use Object-Oriented Programming for clarity and reusability.
+
+------------------------------------------------------------
+3. SYSTEM OVERVIEW
+------------------------------------------------------------
+The system is divided into logical modules within the
+package `restaurant_management_system`:
+
+  1. authentication/
+       - registration.py → Handles login (signin) and staff signup.
+  2. domain/
+       - menu_order.py → Menu creation, ordering, billing, and booking.
+       - validation.py → Contains Validation class for input checks.
+       - logs.py → Logs activities to logs.json.
+       - table_booking.py → Placeholder for future extension.
+  3. database/
+       - Contains JSON files: staff.json, menu.json, orders.json,
+         bookings.json, logs.json
+  4. main.py → Entry point. Provides options:
+         1. Signin
+         2. Signup (Admin only)
+         3. Exit
