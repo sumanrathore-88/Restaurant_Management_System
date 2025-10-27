@@ -1,56 +1,120 @@
 ------------------------------------------------------------
-             CHATORA - RESTAURANT MANAGEMENT SYSTEM
+CHATORA - RESTAURANT MANAGEMENT SYSTEM
 ------------------------------------------------------------
-
 PROJECT REPORT
-------------------------------------------------------------
 Project Title : CHATORA – Restaurant Management System
-Language      : Python 3.x
-Paradigm      : Object-Oriented Programming (OOP)
+Language : Python 3.x
+Paradigm : Object-Oriented Programming (OOP)
 Database Type : JSON File-based Storage
-Developed By  : Suman Rathore
-Date Created  : October 2025
-------------------------------------------------------------
-
+Developed By : Suman Rathore
+Internship Under : Kailash Singh Shahi (IndiXpert)
+Course : Full Stack Web Development – One Year Professional Program
+Date Created : October 2025
 1. INTRODUCTION
-------------------------------------------------------------
-CHATORA is a Python-based restaurant management system designed
-to automate common restaurant operations such as staff
-registration, food ordering, billing, and table booking.
 
-The system follows modular design principles using Python
-packages, file handling (JSON), and strong separation of logic
-into packages like authentication, domain, and database.
+CHATORA is a Python-based Restaurant Management System designed to simplify and automate day-to-day restaurant operations such as staff registration, food ordering, billing, and table booking.
 
-------------------------------------------------------------
+This system demonstrates the use of Object-Oriented Programming (OOP) principles, modular design, and file-based JSON data storage, providing a lightweight yet functional restaurant management solution.
+
+The project was developed as part of an internship under Mr. Kailash Singh Shahi (IndiXpert), during the Full Stack Web Development (One-Year Course), showcasing core concepts of software development and backend logic design.
+
 2. OBJECTIVES
-------------------------------------------------------------
-- To create a modular and reusable Python package for managing
-  restaurant activities.
-- To implement user authentication for admin and staff.
-- To handle menu creation, order taking, and billing.
-- To support customer table booking (1 to 20 tables).
-- To maintain data using JSON files as lightweight databases.
-- To demonstrate exception handling and validation.
-- To use Object-Oriented Programming for clarity and reusability.
 
-------------------------------------------------------------
+To design a modular and reusable Python package for managing restaurant operations.
+
+To implement user authentication for admin and staff with secure data handling.
+
+To enable menu management, order processing, and billing automation.
+
+To support customer table booking for up to 20 tables.
+
+To maintain persistent data using JSON files as a lightweight database alternative.
+
+To demonstrate proper exception handling, input validation, and logging.
+
+To apply Object-Oriented Programming principles for better maintainability and scalability.
+
 3. SYSTEM OVERVIEW
-------------------------------------------------------------
-The system is divided into logical modules within the
-package `restaurant_management_system`:
 
-  1. authentication/
-       - registration.py → Handles login (signin) and staff signup.
-  2. domain/
-       - menu_order.py → Menu creation, ordering, billing, and booking.
-       - validation.py → Contains Validation class for input checks.
-       - logs.py → Logs activities to logs.json.
-       - table_booking.py → Placeholder for future extension.
-  3. database/
-       - Contains JSON files: staff.json, menu.json, orders.json,
-         bookings.json, logs.json
-  4. main.py → Entry point. Provides options:
-         1. Signin
-         2. Signup (Admin only)
-         3. Exit
+The system is structured into modular components within the package:
+restaurant_management_system/
+
+1. authentication/
+
+Handles user management and security functions.
+
+registration.py → Provides functionality for admin and staff signin/signup.
+
+2. domain/
+
+Manages the core business logic.
+
+menu_order.py → Handles menu creation, food ordering, billing, and table management.
+
+validation.py → Defines a Validation class for input checks (e.g., mobile numbers, email formats, etc.).
+
+logs.py → Logs key activities and operations into logs.json.
+
+table_booking.py → Reserved for future extension of the table booking system.
+
+3. database/
+
+Contains persistent data files in JSON format for lightweight database simulation.
+
+staff.json – Stores staff details and credentials.
+
+menu.json – Stores available food items and prices.
+
+orders.json – Stores all customer orders and billing details.
+
+bookings.json – Records table bookings and related data.
+
+logs.json – Logs all system activities for audit and debugging purposes.
+
+4. main.py
+
+Acts as the entry point of the system.
+Provides a console-based menu with options for:
+
+Signin
+
+Signup (Admin only)
+
+Exit
+
+4. FEATURES AND FUNCTIONALITY
+
+Admin Module
+
+Add, view, and manage staff accounts.
+
+Create and update menu items.
+
+Staff Module
+
+Sign in and take customer orders.
+
+Generate and print customer bills.
+
+Book tables for customers.
+
+Data Persistence
+
+All data (staff, menu, orders, etc.) are stored and managed through JSON files.
+
+Validation & Logging
+
+Ensures proper user inputs and maintains system logs for each operation.
+
+5. TECHNOLOGIES USED
+Component	Technology Used
+Programming Language	Python 3.x
+Data Storage	JSON Files
+Design Pattern	OOP & Modular Architecture
+IDE Used	VS Code / PyCharm
+Version Control	Git
+6. CONCLUSION
+
+The CHATORA Restaurant Management System demonstrates the power of Python OOP, file handling, and modular programming. It provides a clear understanding of how backend logic and data management can be structured efficiently in real-world software applications.
+
+This project, developed under the guidance of Mr. Kailash Singh Shahi (IndiXpert) as part of the Full Stack Web Development Internship, reflects both academic learning and practical implementation experience in software engineering.
