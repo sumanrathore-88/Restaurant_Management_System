@@ -1,6 +1,0 @@
-[2025-10-26 10:16:46] [INFO] Admin authenticated successfully.
-[2025-10-26 10:17:34] [INFO] Added staff: ID=101, Name=hari
-[2025-10-26 20:05:26] [INFO] Order completed for hari, Total ₹150.0
-[2025-10-26 20:07:12] [INFO] Booking added: id=489432504, table=1, for=2025-10-27 12:30:00
-[2025-10-26 20:07:25] [WARN] Menu module missing or incompatible; cannot take order after booking.
-[2025-10-26 21:32:52] [INFO] Order completed for hari, Total ₹120.0

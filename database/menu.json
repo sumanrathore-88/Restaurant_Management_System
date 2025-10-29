@@ -1,3 +1,352 @@
-{
-  "menu": []
-}
+[
+  {
+    "id": 1,
+    "name": "Butter Chicken",
+    "type": "Non-Veg",
+    "half": 150.0,
+    "full": 280.0
+  },
+  {
+    "id": 2,
+    "name": "Paneer Butter Masala",
+    "type": "Veg",
+    "half": 120.0,
+    "full": 220.0
+  },
+  {
+    "id": 3,
+    "name": "Dal Makhani",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 4,
+    "name": "Chicken Biryani",
+    "type": "Non-Veg",
+    "half": 130.0,
+    "full": 250.0
+  },
+  {
+    "id": 5,
+    "name": "Veg Pulao",
+    "type": "Veg",
+    "half": 100.0,
+    "full": 180.0
+  },
+  {
+    "id": 6,
+    "name": "Mutton Rogan Josh",
+    "type": "Non-Veg",
+    "half": 180.0,
+    "full": 320.0
+  },
+  {
+    "id": 7,
+    "name": "Shahi Paneer",
+    "type": "Veg",
+    "half": 130.0,
+    "full": 230.0
+  },
+  {
+    "id": 8,
+    "name": "Malai Kofta",
+    "type": "Veg",
+    "half": 120.0,
+    "full": 210.0
+  },
+  {
+    "id": 9,
+    "name": "Fish Curry",
+    "type": "Non-Veg",
+    "half": 160.0,
+    "full": 300.0
+  },
+  {
+    "id": 10,
+    "name": "Chole Bhature",
+    "type": "Veg",
+    "half": 80.0,
+    "full": 150.0
+  },
+  {
+    "id": 11,
+    "name": "Tandoori Chicken",
+    "type": "Non-Veg",
+    "half": 170.0,
+    "full": 320.0
+  },
+  {
+    "id": 12,
+    "name": "Kadai Paneer",
+    "type": "Veg",
+    "half": 120.0,
+    "full": 220.0
+  },
+  {
+    "id": 13,
+    "name": "Rajma Chawal",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 14,
+    "name": "Egg Curry",
+    "type": "Non-Veg",
+    "half": 100.0,
+    "full": 180.0
+  },
+  {
+    "id": 15,
+    "name": "Palak Paneer",
+    "type": "Veg",
+    "half": 110.0,
+    "full": 200.0
+  },
+  {
+    "id": 16,
+    "name": "Chicken Tikka",
+    "type": "Non-Veg",
+    "half": 150.0,
+    "full": 280.0
+  },
+  {
+    "id": 17,
+    "name": "Veg Fried Rice",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 18,
+    "name": "Mutton Biryani",
+    "type": "Non-Veg",
+    "half": 180.0,
+    "full": 320.0
+  },
+  {
+    "id": 19,
+    "name": "Paneer Tikka",
+    "type": "Veg",
+    "half": 130.0,
+    "full": 230.0
+  },
+  {
+    "id": 20,
+    "name": "Prawn Masala",
+    "type": "Non-Veg",
+    "half": 180.0,
+    "full": 340.0
+  },
+  {
+    "id": 21,
+    "name": "Aloo Gobi",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 22,
+    "name": "Mix Veg Curry",
+    "type": "Veg",
+    "half": 100.0,
+    "full": 180.0
+  },
+  {
+    "id": 23,
+    "name": "Keema Curry",
+    "type": "Non-Veg",
+    "half": 160.0,
+    "full": 290.0
+  },
+  {
+    "id": 24,
+    "name": "Kadhi Pakoda",
+    "type": "Veg",
+    "half": 80.0,
+    "full": 150.0
+  },
+  {
+    "id": 25,
+    "name": "Chicken Korma",
+    "type": "Non-Veg",
+    "half": 150.0,
+    "full": 280.0
+  },
+  {
+    "id": 26,
+    "name": "Paneer Lababdar",
+    "type": "Veg",
+    "half": 130.0,
+    "full": 230.0
+  },
+  {
+    "id": 27,
+    "name": "Methi Malai Matar",
+    "type": "Veg",
+    "half": 110.0,
+    "full": 200.0
+  },
+  {
+    "id": 28,
+    "name": "Fish Fry",
+    "type": "Non-Veg",
+    "half": 150.0,
+    "full": 280.0
+  },
+  {
+    "id": 29,
+    "name": "Chana Masala",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 30,
+    "name": "Veg Biryani",
+    "type": "Veg",
+    "half": 110.0,
+    "full": 200.0
+  },
+  {
+    "id": 31,
+    "name": "Chicken Curry",
+    "type": "Non-Veg",
+    "half": 140.0,
+    "full": 260.0
+  },
+  {
+    "id": 32,
+    "name": "Paneer Do Pyaza",
+    "type": "Veg",
+    "half": 120.0,
+    "full": 220.0
+  },
+  {
+    "id": 33,
+    "name": "Egg Biryani",
+    "type": "Non-Veg",
+    "half": 120.0,
+    "full": 220.0
+  },
+  {
+    "id": 34,
+    "name": "Masala Dosa",
+    "type": "Veg",
+    "half": 80.0,
+    "full": 150.0
+  },
+  {
+    "id": 35,
+    "name": "Idli Sambar",
+    "type": "Veg",
+    "half": 70.0,
+    "full": 130.0
+  },
+  {
+    "id": 36,
+    "name": "Vada Pav",
+    "type": "Veg",
+    "half": 40.0,
+    "full": 70.0
+  },
+  {
+    "id": 37,
+    "name": "Pav Bhaji",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 38,
+    "name": "Bhel Puri",
+    "type": "Veg",
+    "half": 50.0,
+    "full": 90.0
+  },
+  {
+    "id": 39,
+    "name": "Samosa Chaat",
+    "type": "Veg",
+    "half": 60.0,
+    "full": 110.0
+  },
+  {
+    "id": 40,
+    "name": "Mutton Curry",
+    "type": "Non-Veg",
+    "half": 180.0,
+    "full": 320.0
+  },
+  {
+    "id": 41,
+    "name": "Fish Biryani",
+    "type": "Non-Veg",
+    "half": 170.0,
+    "full": 310.0
+  },
+  {
+    "id": 42,
+    "name": "Chicken 65",
+    "type": "Non-Veg",
+    "half": 150.0,
+    "full": 270.0
+  },
+  {
+    "id": 43,
+    "name": "Paneer Roll",
+    "type": "Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 44,
+    "name": "Veg Burger",
+    "type": "Veg",
+    "half": 70.0,
+    "full": 130.0
+  },
+  {
+    "id": 45,
+    "name": "Chicken Burger",
+    "type": "Non-Veg",
+    "half": 100.0,
+    "full": 180.0
+  },
+  {
+    "id": 46,
+    "name": "Veg Momos",
+    "type": "Veg",
+    "half": 80.0,
+    "full": 140.0
+  },
+  {
+    "id": 47,
+    "name": "Chicken Momos",
+    "type": "Non-Veg",
+    "half": 90.0,
+    "full": 160.0
+  },
+  {
+    "id": 48,
+    "name": "Paneer Pakoda",
+    "type": "Veg",
+    "half": 80.0,
+    "full": 150.0
+  },
+  {
+    "id": 49,
+    "name": "Aloo Tikki",
+    "type": "Veg",
+    "half": 60.0,
+    "full": 110.0
+  },
+  {
+    "id": 50,
+    "name": "Gulab Jamun",
+    "type": "Veg",
+    "half": 50.0,
+    "full": 90.0
+  }
+]

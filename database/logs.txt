@@ -1,0 +1,67 @@
+[2025-10-28 17:12:40] INFO: Domain package initialized successfully.
+[2025-10-28 17:12:40] INFO: Created staff DB at c:\github code\Chatora_Restaurant\Restaurant_Management_System\database\staff.json
+[2025-10-28 17:13:07] WARNING: Admin provided invalid credential format during auth.
+[2025-10-28 17:13:28] INFO: Admin authenticated successfully.
+[2025-10-28 17:13:53] INFO: Admin authenticated successfully.
+[2025-10-28 17:14:53] INFO: Admin authenticated successfully.
+[2025-10-28 17:15:24] INFO: Admin added new staff: 101 - hari
+[2025-10-28 17:15:52] INFO: Staff signed in: 101 - hari
+[2025-10-28 17:16:03] WARNING: Attempted to call menu_order but module not found or lacks main()
+[2025-10-28 17:35:16] INFO: Domain package initialized successfully.
+[2025-10-28 17:36:23] WARNING: Signin failed - staff not found.
+[2025-10-28 17:36:48] INFO: Domain package initialized successfully.
+[2025-10-28 17:37:19] INFO: Staff signed in: 101
+[2025-10-28 17:37:23] INFO: Seeded menu.json with initial items.
+[2025-10-28 17:38:25] INFO: New order placed at 2025-10-28 17:38:25 - total 2172.10
+[2025-10-28 17:38:42] INFO: Created bookings.json
+[2025-10-28 20:59:53] INFO: Domain package initialized successfully.
+[2025-10-28 21:00:16] INFO: Admin authenticated successfully.
+[2025-10-28 21:00:39] INFO: Staff signed in: 101
+[2025-10-28 21:06:16] INFO: New booking 1 on 2025-10-30 22:30 tables [1, 2] for 9 persons
+[2025-10-28 21:21:45] INFO: Logger initialized (shared instance).
+[2025-10-28 21:21:45] INFO: Domain package initialized successfully.
+[2025-10-28 21:22:01] INFO: Staff signed in: 101
+[2025-10-28 21:23:03] INFO: Logger initialized (shared instance).
+[2025-10-28 21:23:03] INFO: Domain package initialized successfully.
+[2025-10-28 21:23:21] INFO: Staff signed in: 101
+[2025-10-28 21:28:48] INFO: Logger initialized (shared instance).
+[2025-10-28 21:28:48] INFO: Domain package initialized successfully.
+[2025-10-28 21:29:01] INFO: Staff signed in: 101
+[2025-10-28 21:30:49] INFO: New booking 2 for chiya on 2025-12-31 11:30 tables [1]
+[2025-10-28 21:38:48] INFO: Logger initialized (shared instance).
+[2025-10-28 21:38:48] INFO: Domain package initialized successfully.
+[2025-10-28 21:39:02] INFO: Staff signed in: 101
+[2025-10-28 21:40:09] INFO: Booking 3 created for dharm on 2025-12-31 22:30 tables [1]
+[2025-10-28 21:40:42] INFO: Computed total bookings: 3
+[2025-10-28 21:40:53] INFO: Computed total bookings: 3
+[2025-10-28 21:41:18] INFO: Yearly orders for 2025: 1
+[2025-10-28 21:47:45] INFO: Logger initialized (shared instance).
+[2025-10-28 21:47:45] INFO: Domain package initialized successfully.
+[2025-10-28 21:47:56] INFO: Staff signed in: 101
+[2025-10-29 10:02:14] INFO: Logger initialized (shared instance).
+[2025-10-29 10:02:14] INFO: Domain package initialized successfully.
+[2025-10-29 10:03:01] INFO: Admin authenticated successfully.
+[2025-10-29 10:03:20] WARNING: Admin provided invalid credential format.
+[2025-10-29 10:03:45] INFO: Admin authenticated successfully.
+[2025-10-29 10:04:26] INFO: Admin added staff 102 - chiya
+[2025-10-29 10:04:54] INFO: Admin authenticated successfully.
+[2025-10-29 10:05:30] INFO: Admin added staff 103 - yuvi
+[2025-10-29 10:06:01] INFO: Admin signed in.
+[2025-10-29 10:06:24] INFO: Staff signed in: 101
+[2025-10-29 10:08:05] INFO: New order placed at 2025-10-29 10:08:05 - total 952.30
+[2025-10-29 10:13:20] INFO: Logger initialized (shared instance).
+[2025-10-29 10:13:20] INFO: Domain package initialized successfully.
+[2025-10-29 10:13:33] INFO: Staff signed in: 101
+[2025-10-29 10:15:21] INFO: Booking 4 created for karm and dharm on 2025-12-31 18:00 tables [1, 2]
+[2025-10-29 10:17:32] INFO: Booking 5 created for suman on 2025-12-31 18:00 tables [3, 4, 5, 6, 7, 8, 9, 10, 11]
+[2025-10-29 10:19:20] INFO: Booking 6 created for siya on 2025-10-30 14:00 tables [1, 2]
+[2025-10-29 10:20:19] INFO: Payment method usage between 0001-01-01 00:00:00 and 9999-12-31 23:59:59.999999: {'Cash': 2}
+[2025-10-29 10:58:13] INFO: Logger initialized (shared instance).
+[2025-10-29 10:58:28] WARNING: Admin provided invalid credential format.
+[2025-10-29 10:58:46] INFO: Admin authenticated successfully.
+[2025-10-29 10:59:08] WARNING: Admin provided invalid credential format.
+[2025-10-29 10:59:30] INFO: Admin authenticated successfully.
+[2025-10-29 10:59:58] INFO: Admin added staff 104 - diya
+[2025-10-29 11:00:15] INFO: Staff signed in: 101
+[2025-10-29 11:00:41] INFO: New order placed at 2025-10-29 11:00:41 - total 96.30
+[2025-10-29 11:01:46] INFO: Booking 7 created for priya on 2025-11-01 12:30 tables [1]

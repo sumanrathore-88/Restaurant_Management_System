@@ -1,150 +1,298 @@
 
-
+from datetime import datetime, date, time, timedelta
 import re
-from datetime import datetime
-from typing import Any
+from typing import Optional, Union
+
+#  constants
+NUM_TABLES = 20
+SEATS_PER_TABLE = 6
+RESTAURANT_CAPACITY = 500
+OPENING_TIME = time(hour=10, minute=0)   # 10:00
+CLOSING_TIME = time(hour=22, minute=0)   # 22:00
+MIN_HOURS = 1
+MAX_HOURS = 4
+MAX_ADVANCE_DAYS = 90   # roughly 3 months
+MIN_PASSWORD_LENGTH = 4
+MIN_NAME_LENGTH = 1
+
+EMAIL_REGEX = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+
 
 class Validation:
-    
-    EMAIL_RE = re.compile(r"^[\w\.-]+@[\w\.-]+\.\w{2,}$")
-    CONTACT_RE = re.compile(r"^\+?\d{7,15}$")  
 
     @staticmethod
-    def validate_id(value: Any, *, name: str = "ID"):
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer.")
-        if value <= 0:
-            raise ValueError(f"{name} must be a positive integer.")
+    def non_empty(value: Optional[str]) -> bool:
+        """True if value is a non-empty string after stripping."""
+        try:
+            return bool(value and isinstance(value, str) and value.strip() != "")
+        except Exception:
+            return False
+
+    # -----------------------
+    # ID / numeric checks
+    # -----------------------
+    @staticmethod
+    def is_valid_id(value: Union[str, int]) -> bool:
+        """Positive integer ID check (accepts '123' or 123)."""
+        try:
+            if isinstance(value, int):
+                return value > 0
+            s = str(value).strip()
+            if not s or not s.isdigit():
+                return False
+            return int(s) > 0
+        except Exception:
+            return False
 
     @staticmethod
-    def validate_name(name: Any, *, field: str = "Name"):
-        if not isinstance(name, str):
-            raise TypeError(f"{field} must be a string.")
-        s = name.strip()
-        if len(s) < 2:
-            raise ValueError(f"{field} must be at least 2 characters long.")
+    def is_positive_int(value: Union[str, int]) -> bool:
+        """Non-negative integer (0 allowed)."""
+        try:
+            if isinstance(value, int):
+                return value >= 0
+            s = str(value).strip()
+            if not s or not s.isdigit():
+                return False
+            return int(s) >= 0
+        except Exception:
+            return False
 
+    # -----------------------
+    # Contact / email / password
+    # -----------------------
     @classmethod
-    def validate_email(cls, email: Any):
-        if not isinstance(email, str):
-            raise TypeError("Email must be a string.")
-        if not cls.EMAIL_RE.match(email.strip()):
-            raise ValueError("Invalid email format.")
+    def is_valid_email(cls, email: Optional[str]) -> bool:
+        """Basic email validation using regex."""
+        try:
+            if not cls.non_empty(email):
+                return False
+            return bool(EMAIL_REGEX.match(email.strip()))
+        except Exception:
+            return False
 
     @staticmethod
-    def validate_password(password: Any, *, min_length: int = 4):
-        if not isinstance(password, str):
-            raise TypeError("Password must be a string.")
-        if len(password) < min_length:
-            raise ValueError(f"Password must be at least {min_length} characters long.")
-
-    @classmethod
-    def validate_contact(cls, contact: Any):
-        if not isinstance(contact, str):
-            raise TypeError("Contact must be a string of digits (optionally starting with '+').")
-        if not cls.CONTACT_RE.match(contact.strip()):
-            raise ValueError("Invalid contact number. Use digits only, optional leading '+', length 7-15.")
+    def is_valid_password(pw: Optional[str]) -> bool:
+        """Minimal password policy: at least MIN_PASSWORD_LENGTH printable chars."""
+        try:
+            if not pw or not isinstance(pw, str):
+                return False
+            return len(pw.strip()) >= MIN_PASSWORD_LENGTH
+        except Exception:
+            return False
 
     @staticmethod
-    def validate_qualification(qualification: Any):
-        if not isinstance(qualification, str):
-            raise TypeError("Qualification must be a string.")
-        if not qualification.strip():
-            raise ValueError("Qualification cannot be empty.")
+    def is_valid_contact(contact: Optional[str]) -> bool:
+        """
+        Indian-style contact validation:
+         - exactly 10 digits
+         - digits only
+        """
+        try:
+            if not contact:
+                return False
+            s = str(contact).strip()
+            return bool(s.isdigit() and len(s) == 10)
+        except Exception:
+            return False
 
-    # ----- Menu-specific validators -----
+    # -----------------------
+    # Menu / item validations
+    # -----------------------
     @staticmethod
-    def validate_item_name(name: Any):
-        if not isinstance(name, str):
-            raise TypeError("Item name must be a string.")
-        if len(name.strip()) < 2:
-            raise ValueError("Item name must be at least 2 characters long.")
-
-    @staticmethod
-    def validate_type(t: Any):
-        if not isinstance(t, str):
-            raise TypeError("Type must be a string: 'Veg' or 'Non-Veg'.")
-        if t not in ("Veg", "Non-Veg"):
-            raise ValueError("Type must be either 'Veg' or 'Non-Veg' (case-sensitive).")
-
-    @staticmethod
-    def validate_price(p: Any, *, field: str = "Price"):
-        if not isinstance(p, (int, float)):
-            raise TypeError(f"{field} must be a number.")
-        if p < 0:
-            raise ValueError(f"{field} must be non-negative.")
-
-    @staticmethod
-    def validate_portion(portion: Any):
-        if not isinstance(portion, str):
-            raise TypeError("Portion must be a string 'half' or 'full'.")
-        if portion not in ("half", "full"):
-            raise ValueError("Portion must be 'half' or 'full'.")
+    def is_valid_item_name(name: Optional[str]) -> bool:
+        """Non-empty name; reasonable max length enforced."""
+        try:
+            if not name or not isinstance(name, str):
+                return False
+            n = name.strip()
+            return MIN_NAME_LENGTH <= len(n) <= 200
+        except Exception:
+            return False
 
     @staticmethod
-    def validate_quantity(qty: Any):
-        if not isinstance(qty, int):
-            raise TypeError("Quantity must be an integer.")
-        if qty <= 0:
-            raise ValueError("Quantity must be a positive integer.")
+    def is_valid_type(tp: Optional[str]) -> bool:
+        """Accepts common spellings for Veg/Non-Veg (case-insensitive)."""
+        try:
+            if not tp or not isinstance(tp, str):
+                return False
+            t = tp.strip().lower()
+            allowed = {
+                "veg",
+                "vegetarian",
+                "non-veg",
+                "non veg",
+                "nonveg",
+                "nonvegetarian",
+                "non vegetarian",
+                "nonvegetarian",
+            }
+            return t in allowed
+        except Exception:
+            return False
 
-    # ----- Table booking validators -----
     @staticmethod
-    def validate_table_number(table_no: Any, *, min_table: int = 1, max_table: int = 20):
-        if not isinstance(table_no, int):
-            raise TypeError("Table number must be an integer.")
-        if not (min_table <= table_no <= max_table):
-            raise ValueError(f"Table number must be between {min_table} and {max_table}.")
+    def is_valid_price(val: Union[str, int, float]) -> bool:
+        """Non-negative numeric price. Accepts numbers or numeric strings."""
+        try:
+            if isinstance(val, (int, float)):
+                return float(val) >= 0.0
+            s = str(val).strip()
+            if not s:
+                return False
+            # allow a single decimal point
+            if s.count(".") > 1:
+                return False
+            return bool(re.fullmatch(r"\d+(\.\d+)?", s)) and float(s) >= 0.0
+        except Exception:
+            return False
 
     @staticmethod
-    def validate_num_people(n: Any, *, max_people: int = 20):
-        if not isinstance(n, int):
-            raise TypeError("Number of people must be an integer.")
-        if n <= 0 or n > max_people:
-            raise ValueError(f"Number of people must be 1..{max_people}.")
+    def is_valid_quantity(q: Union[str, int]) -> bool:
+        """Quantity limited to integer 1..5 inclusive."""
+        try:
+            if isinstance(q, int):
+                return 1 <= q <= 5
+            s = str(q).strip()
+            if not s.isdigit():
+                return False
+            v = int(s)
+            return 1 <= v <= 5
+        except Exception:
+            return False
+
+    # -----------------------
+    # Date/time checks
+    # -----------------------
+    @staticmethod
+    def parse_date(s: str) -> Optional[date]:
+        """
+        Parse date in ISO format YYYY-MM-DD. Returns date or None on failure.
+        """
+        try:
+            if not s or not isinstance(s, str):
+                return None
+            return datetime.strptime(s.strip(), "%Y-%m-%d").date()
+        except Exception:
+            return None
 
     @staticmethod
-    def validate_datetime(dt: Any):
-        if not isinstance(dt, datetime):
-            raise TypeError("Value must be a datetime instance.")
+    def parse_time(s: str) -> Optional[time]:
+        """
+        Parse time in HH:MM (24-hour). Returns time or None on failure.
+        """
+        try:
+            if not s or not isinstance(s, str):
+                return None
+            return datetime.strptime(s.strip(), "%H:%M").time()
+        except Exception:
+            return None
 
-    # ----- Billing / payment validators -----
     @staticmethod
-    def validate_payment_method(method: Any):
-        if not isinstance(method, str):
-            raise TypeError("Payment method must be a string.")
-        if method not in ("Cash", "Google Pay", "Netbanking"):
-            raise ValueError("Payment method must be one of: 'Cash', 'Google Pay', 'Netbanking'.")
+    def parse_datetime(s: str) -> Optional[datetime]:
+       
+        if not s or not isinstance(s, str):
+            return None
+        s2 = s.strip()
+        fmts = ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d")
+        for fmt in fmts:
+            try:
+                return datetime.strptime(s2, fmt)
+            except Exception:
+                continue
+        return None
 
-    
     @staticmethod
-    def ensure_non_empty_sequence(seq: Any, *, name: str = "Sequence"):
-        if not hasattr(seq, "__len__"):
-            raise TypeError(f"{name} must be a sequence.")
-        if len(seq) == 0:
-            raise ValueError(f"{name} must not be empty.")
+    def within_opening_hours(start_t: time, hours: int) -> bool:
+        
+        try:
+            if not isinstance(start_t, time):
+                return False
+            hours_i = int(hours)
+            if hours_i < MIN_HOURS or hours_i > MAX_HOURS:
+                return False
+            dt_start = datetime.combine(date.today(), start_t)
+            dt_end = dt_start + timedelta(hours=hours_i)
+            start_ok = start_t >= OPENING_TIME
+            end_ok = dt_end.time() <= CLOSING_TIME
+            return start_ok and end_ok
+        except Exception:
+            return False
 
+    @staticmethod
+    def is_today_or_future_within_limit(d: date) -> bool:
+        
+        try:
+            if not isinstance(d, date):
+                return False
+            today = date.today()
+            if d < today:
+                return False
+            return d <= today + timedelta(days=MAX_ADVANCE_DAYS)
+        except Exception:
+            return False
 
-if __name__ == "__main__":
-    
-    from datetime import datetime
-    try:
-        Validation.validate_id(5)
-        Validation.validate_name("Suman", field="Admin name")
-        Validation.validate_email("suman@gmail.com")
-        Validation.validate_password("suman123")
-        Validation.validate_contact("+919876543210")
-        Validation.validate_qualification("MBA")
-        Validation.validate_item_name("Butter Chicken")
-        Validation.validate_type("Non-Veg")
-        Validation.validate_price(150)
-        Validation.validate_portion("full")
-        Validation.validate_quantity(2)
-        Validation.validate_table_number(10)
-        Validation.validate_num_people(4)
-        Validation.validate_datetime(datetime.now())
-        Validation.validate_payment_method("Cash")
-        Validation.ensure_non_empty_sequence([1], name="Order items")
-        print("Validation smoke tests passed.")
-    except Exception as e:
-        print("Validation test failed:", e)
+    # -----------------------
+    # Table / booking checks
+    # -----------------------
+    @staticmethod
+    def is_valid_table_id(x: Union[str, int]) -> bool:
+        """True if x corresponds to a table id between 1 and NUM_TABLES inclusive."""
+        try:
+            if isinstance(x, int):
+                return 1 <= x <= NUM_TABLES
+            s = str(x).strip()
+            if not s.isdigit():
+                return False
+            v = int(s)
+            return 1 <= v <= NUM_TABLES
+        except Exception:
+            return False
+
+    @staticmethod
+    def is_valid_person_count(x: Union[str, int]) -> bool:
+        """Validate person count between 1 and RESTAURANT_CAPACITY."""
+        try:
+            if isinstance(x, int):
+                return 1 <= x <= RESTAURANT_CAPACITY
+            s = str(x).strip()
+            if not s.isdigit():
+                return False
+            v = int(s)
+            return 1 <= v <= RESTAURANT_CAPACITY
+        except Exception:
+            return False
+
+    @staticmethod
+    def is_valid_hours(x: Union[str, int]) -> bool:
+        """Validate booking hours between MIN_HOURS and MAX_HOURS inclusive."""
+        try:
+            if isinstance(x, int):
+                v = x
+            else:
+                s = str(x).strip()
+                if not s.isdigit():
+                    return False
+                v = int(s)
+            return MIN_HOURS <= v <= MAX_HOURS
+        except Exception:
+            return False
+
+    # -----------------------
+    # Reporting 
+    # -----------------------
+    @staticmethod
+    def is_positive_number(x: Union[str, int, float]) -> bool:
+        
+        try:
+            if isinstance(x, (int, float)):
+                return float(x) >= 0.0
+            s = str(x).strip()
+            if not s:
+                return False
+            if s.count(".") > 1:
+                return False
+            if not re.fullmatch(r"\d+(\.\d+)?", s):
+                return False
+            return float(s) >= 0.0
+        except Exception:
+            return False
